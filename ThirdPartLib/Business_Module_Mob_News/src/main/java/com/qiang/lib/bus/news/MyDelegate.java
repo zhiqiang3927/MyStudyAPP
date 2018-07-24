@@ -2,7 +2,7 @@ package com.qiang.lib.bus.news;
 
 import android.support.annotation.Keep;
 
-import com.qiang.lib.fun.common.base.BaseViewManager;
+import com.qiang.lib.fun.common.base.MyViewManager;
 import com.qiang.lib.fun.common.base.IApplicationDelegate;
 
 /**
@@ -34,7 +34,7 @@ public class MyDelegate implements IApplicationDelegate {
 //            }
 //        });
         //主动添加
-        BaseViewManager.getInstance().addFragment(0, NewsFragment.newInstance());
+        MyViewManager.getInstance().addFragment(0, NewsFragment.newInstance());
     }
 
     @Override

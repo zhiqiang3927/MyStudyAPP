@@ -126,7 +126,7 @@ public class ForegroundCallbacks implements Application.ActivityLifecycleCallbac
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         Log.e("ForegroundCallbacks","onActivityCreated(ForegroundCallbacks.java:130)"+"onActivityCreated");
-        BaseViewManager.getInstance().addActivity(activity);
+        MyViewManager.getInstance().addActivity(activity);
     }
 
     @Override
@@ -147,7 +147,7 @@ public class ForegroundCallbacks implements Application.ActivityLifecycleCallbac
     @Override
     public void onActivityDestroyed(Activity activity) {
         Log.e("ForegroundCallbacks", "onActivityDestroyed(ForegroundCallbacks.java:151)" + "onActivityDestroyed");
-        BaseViewManager.getInstance().finishTargetActivity(activity);
+        MyViewManager.getInstance().finishTargetActivity(activity);
     }
 
     /**

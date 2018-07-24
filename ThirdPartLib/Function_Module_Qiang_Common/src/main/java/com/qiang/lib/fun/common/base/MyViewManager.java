@@ -18,13 +18,13 @@ import java.util.Stack;
  *      Email           ： zhiqiang2008.happy@163.com
  *      blog            ： http://www.3927.group
  *      ModuleName      ： Function_Module_Qiang_Common
- *      FunctionName    ： BaseViewManager
+ *      FunctionName    ： MyViewManager
  *      Deprecation     ： 全局管理Activity、BaseFragment
  * </pre>
  */
 
 @Keep
-public class BaseViewManager {
+public class MyViewManager {
     /**
      * 应用中的Activity
      */
@@ -35,20 +35,20 @@ public class BaseViewManager {
     private static List<BaseFragment> fragmentList;
 
     /**
-     * BaseViewManager 实体
+     * MyViewManager 实体
      */
-    private static BaseViewManager mBaseViewManager = null;
+    private static MyViewManager mMyViewManager = null;
 
-    private BaseViewManager() {
+    private MyViewManager() {
     }
 
-    public static BaseViewManager getInstance() {
-        synchronized (BaseViewManager.class) {
-            if (mBaseViewManager == null) {
-                mBaseViewManager = new BaseViewManager();
+    public static MyViewManager getInstance() {
+        synchronized (MyViewManager.class) {
+            if (mMyViewManager == null) {
+                mMyViewManager = new MyViewManager();
             }
         }
-        return mBaseViewManager;
+        return mMyViewManager;
     }
 
     /**
