@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.qiang.lib.fun.common.R;
-import com.qiang.lib.fun.common.base.BaseApplication;
+import com.qiang.lib.fun.common.base.conts.BaseApplication;
 import com.qiang.lib.fun.common.utils.MyScreenUtil;
 import com.qiang.lib.fun.common.utils.MyUiUtils;
 

@@ -1,7 +1,7 @@
 package debug;
 
 import com.orhanobut.logger.Logger;
-import com.qiang.lib.fun.common.base.BaseApplication;
+import com.qiang.lib.fun.common.base.conts.BaseApplication;
 import com.qiang.lib.fun.common.utils.MyHttpUtils;
 import com.qiang.lib.fun.common.net.okhttp.OnResultListener;
 

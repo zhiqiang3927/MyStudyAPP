@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.qiang.lib.fun.common.arouter.BaseARouterPath;
 import com.qiang.lib.fun.common.base.view.BaseActivityByID;
-import com.qiang.lib.fun.common.base.BaseConst;
+import com.qiang.lib.fun.common.base.conts.BaseConst;
 import com.qiang.lib.fun.common.utils.SPCacheUtils;
 import com.qiang.lib.fun.frame.setting.GestureLock.lib.GestureLockView;
 import com.qiang.lib.fun.frame.R;

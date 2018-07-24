@@ -1,4 +1,4 @@
-package com.qiang.lib.fun.common.base;
+package com.qiang.lib.fun.common.base.conts;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +13,10 @@ import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.qiang.lib.fun.common.arouter.BaseARouterPath;
 import com.qiang.lib.fun.common.arouter.MyARouterUtils;
+import com.qiang.lib.fun.common.base.BaseContextUtils;
+import com.qiang.lib.fun.common.base.ClassUtils;
+import com.qiang.lib.fun.common.base.ForegroundCallbacks;
+import com.qiang.lib.fun.common.base.IApplicationDelegate;
 import com.qiang.lib.fun.common.utils.CrashHandler;
 import com.qiang.lib.fun.common.utils.SPCacheUtils;
 

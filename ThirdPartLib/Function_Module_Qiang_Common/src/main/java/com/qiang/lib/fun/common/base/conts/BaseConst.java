@@ -1,4 +1,4 @@
-package com.qiang.lib.fun.common.base;
+package com.qiang.lib.fun.common.base.conts;
 
 /**
  * Created by AM on 2016/4/29.

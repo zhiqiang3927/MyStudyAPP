@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.qiang.lib.fun.common.R;
-import com.qiang.lib.fun.common.base.BaseApplication;
+import com.qiang.lib.fun.common.base.conts.BaseApplication;
 import com.qiang.lib.fun.common.utils.MyScreenUtil;
 /**
  * <pre>

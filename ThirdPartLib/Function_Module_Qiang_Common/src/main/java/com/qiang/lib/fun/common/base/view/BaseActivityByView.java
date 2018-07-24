@@ -3,7 +3,7 @@ package com.qiang.lib.fun.common.base.view;
 import android.os.Bundle;
 import android.view.View;
 
-import com.qiang.lib.fun.common.base.BaseApplication;
+import com.qiang.lib.fun.common.base.conts.BaseApplication;
 import com.qiang.lib.fun.common.utils.MyScreenUtil;
 
 

@@ -1,6 +1,6 @@
 package com.qiang.app.mystudyapp.common;
 
-import com.qiang.lib.fun.common.base.BaseApplication;
+import com.qiang.lib.fun.common.base.conts.BaseApplication;
 
 /**
  * <pre>
