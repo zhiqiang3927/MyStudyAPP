@@ -2,6 +2,17 @@ package com.qiang.lib.fun.common.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+/**
+ * <pre>
+ *      Date            ： 2018/7/24 16:03
+ *      Author          ： Jackzhou
+ *      Email           ： zhiqiang2008.happy@163.com
+ *      blog            ： http://www.3927.group
+ *      ModuleName      ：
+ *      FunctionName    ：
+ *      Deprecation     ： SP 工具类
+ * </pre>
+ */
 
 public class SPCacheUtils {
     private final static String SP_NAME = "AM_GES_LOCK";

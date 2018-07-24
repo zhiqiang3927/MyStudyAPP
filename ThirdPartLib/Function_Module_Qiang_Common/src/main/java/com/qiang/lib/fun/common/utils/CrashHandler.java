@@ -13,6 +13,17 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * <pre>
+ *      Date            ： 2018/7/24 16:04
+ *      Author          ： Jackzhou
+ *      Email           ： zhiqiang2008.happy@163.com
+ *      blog            ： http://www.3927.group
+ *      ModuleName      ：
+ *      FunctionName    ：
+ *      Deprecation     ： 全局异常捕捉类
+ * </pre>
+ */
 
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     //系统默认的UncaughtException处理类

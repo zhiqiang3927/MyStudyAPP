@@ -2,13 +2,18 @@ package com.qiang.lib.fun.common.utils;
 
 import android.os.Handler;
 import android.os.Looper;
-
 /**
- * 模块：线程工具类
- * 功能：
- * 作者：李海
- * 时间：2016年11月03日13时44分
+ * <pre>
+ *      Date            ： 2018/7/24 16:02
+ *      Author          ： Jackzhou
+ *      Email           ： zhiqiang2008.happy@163.com
+ *      blog            ： http://www.3927.group
+ *      ModuleName      ：
+ *      FunctionName    ：
+ *      Deprecation     ： 线程工具类
+ * </pre>
  */
+
 public class ThreadUtils {
 
     /**

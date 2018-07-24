@@ -162,7 +162,7 @@ public class BaseApplication extends MultiDexApplication {
 
     @Override
     public void onTerminate() {
-        Log.e("BaseApplication", "onTerminate(BaseApplication.java:73)" + "onTerminate : app stop");
+        Log.e("BaseApplication", "onTerminate(BaseApplication.java:165)" + "onTerminate : app stop");
         super.onTerminate();
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onTerminate();
@@ -171,7 +171,7 @@ public class BaseApplication extends MultiDexApplication {
 
     @Override
     public void onLowMemory() {
-        Log.e("BaseApplication", "onLowMemory(BaseApplication.java:82)" + "onLowMemory : app low memory");
+        Log.e("BaseApplication", "onLowMemory(BaseApplication.java:174)" + "onLowMemory : app low memory");
         super.onLowMemory();
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onLowMemory();
@@ -180,7 +180,7 @@ public class BaseApplication extends MultiDexApplication {
 
     @Override
     public void onTrimMemory(int level) {
-        Log.e("BaseApplication", "onTrimMemory(BaseApplication.java:91)" + "onTrimMemory : app memory clean");
+        Log.e("BaseApplication", "onTrimMemory(BaseApplication.java:182)" + "onTrimMemory : app memory clean");
         super.onTrimMemory(level);
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onTrimMemory(level);

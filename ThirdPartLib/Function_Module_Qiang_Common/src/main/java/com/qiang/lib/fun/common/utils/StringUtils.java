@@ -1,8 +1,17 @@
 package com.qiang.lib.fun.common.utils;
 
 /**
- * 字符串相关工具类
+ * <pre>
+ *      Date            ： 2018/7/24 16:02
+ *      Author          ： Jackzhou
+ *      Email           ： zhiqiang2008.happy@163.com
+ *      blog            ： http://www.3927.group
+ *      ModuleName      ：
+ *      FunctionName    ：
+ *      Deprecation     ： 字符串相关工具类
+ * </pre>
  */
+
 public class StringUtils {
 
     private StringUtils() {

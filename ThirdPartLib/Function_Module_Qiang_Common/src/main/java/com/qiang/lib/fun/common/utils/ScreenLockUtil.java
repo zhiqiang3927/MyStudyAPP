@@ -11,8 +11,17 @@ import android.util.Log;
 import java.util.HashMap;
 
 /**
- * 用于保持屏幕高亮的工具
+ * <pre>
+ *      Date            ： 2018/7/24 16:03
+ *      Author          ： Jackzhou
+ *      Email           ： zhiqiang2008.happy@163.com
+ *      blog            ： http://www.3927.group
+ *      ModuleName      ：
+ *      FunctionName    ：
+ *      Deprecation     ： 用于保持屏幕高亮的工具
+ * </pre>
  */
+
 public class ScreenLockUtil {
     private static final String TAG = "ScreenLockUtil";
 
