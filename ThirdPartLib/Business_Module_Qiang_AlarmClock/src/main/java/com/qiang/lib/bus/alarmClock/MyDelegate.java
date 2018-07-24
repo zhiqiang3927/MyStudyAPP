@@ -3,7 +3,7 @@ package com.qiang.lib.bus.alarmClock;
 import android.support.annotation.Keep;
 
 import com.qiang.lib.fun.common.base.IApplicationDelegate;
-import com.qiang.lib.fun.common.base.BaseViewManager;
+import com.qiang.lib.fun.common.base.MyViewManager;
 
 
 /**
@@ -24,7 +24,7 @@ public class MyDelegate implements IApplicationDelegate {
     @Override
     public void onCreate() {
         //主动添加
-        BaseViewManager.getInstance().addFragment(0, GirlsFragment.newInstance());
+        MyViewManager.getInstance().addFragment(0, GirlsFragment.newInstance());
     }
 
     @Override

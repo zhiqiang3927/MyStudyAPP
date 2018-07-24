@@ -5,9 +5,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.qiang.lib.fun.common.base.MyViewManager;
 import com.qiang.lib.fun.common.base.view.BaseActivityByID;
 import com.qiang.lib.fun.common.base.view.BaseFragment;
-import com.qiang.lib.fun.common.base.BaseViewManager;
 import com.qiang.lib.fun.common.base.ClassUtils;
 import com.qiang.lib.fun.common.base.IViewDelegate;
 import com.qiang.lib.fun.common.widget.NoScrollViewPager;
@@ -67,7 +67,7 @@ public class BottomNavigationActivity extends BaseActivityByID {
     }
 
     private void initViewPager() {
-        mFragments = BaseViewManager.getInstance().getAllFragment();//这几个Fragment是主动添加到ViewManager中的
+        mFragments = MyViewManager.getInstance().getAllFragment();//这几个Fragment是主动添加到ViewManager中的
         BaseFragment newsFragment = getNewsFragment();//主动寻找
         mFragments.add(newsFragment);
         mPager = (NoScrollViewPager) findViewById(R.id.container_pager);

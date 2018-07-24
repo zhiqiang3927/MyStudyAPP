@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.qiang.lib.fun.common.arouter.BaseARouterPath;
+import com.qiang.lib.fun.common.base.MyViewManager;
 import com.qiang.lib.fun.common.base.view.BaseActivityByID;
-import com.qiang.lib.fun.common.base.BaseViewManager;
 import com.qiang.lib.fun.common.utils.MyToastUtil;
 import com.qiang.lib.fun.frame.R;
 
@@ -117,7 +117,7 @@ public class MainFrameActivity extends BaseActivityByID {
                 MyToastUtil.showInfoToast(R.string.app_exit_hint, false);
                 mExitTime = System.currentTimeMillis();
             } else {
-                BaseViewManager.getInstance().exitApp(this);
+                MyViewManager.getInstance().exitApp(this);
             }
             return true;
         }
