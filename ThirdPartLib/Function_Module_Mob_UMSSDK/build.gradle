@@ -1,0 +1,66 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.mob.sdk'
+android {
+    //读取构建配置
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    def domainDependencies = rootProject.ext.domainDependencies
+    implementation domainDependencies.supportAppcompatV7
+//    implementation project(':iPoleLog')
+}
+
+MobSDK {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('keystore.properties').newDataInputStream())
+
+    appKey properties.getProperty("MobSDK_appKey")
+    appSecret properties.getProperty("MobSDK_appSecret")
+
+    ShareSDK {
+        gui false
+        devInfo {
+            SinaWeibo {
+                appKey properties.getProperty("SinaWeibo_appKey")
+                appSecret properties.getProperty("SinaWeibo_appSecret")
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient false
+            }
+            Wechat {
+                appId properties.getProperty("WeChat_appId")
+                appSecret properties.getProperty("WeChat_appSecret")
+            }
+            QQ {
+                appId properties.getProperty("QQ_appId")
+                appKey properties.getProperty("QQ_appKey")
+            }
+        }
+    }
+
+    SMSSDK {
+        gui false
+    }
+
+    UMSSDK {
+        gui false
+    }
+}

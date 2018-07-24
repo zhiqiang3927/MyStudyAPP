@@ -1,0 +1,277 @@
+apply plugin: 'com.android.application'
+
+// Create a variable called keystorePropertiesFile, and initialize it to your
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+static def buildTime() {
+    return new Date().format("yyyyMMdd");
+}
+
+android {
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['Qiang_keyAlias']
+            keyPassword keystoreProperties['Qiang_keyPassword']
+            storeFile file(keystoreProperties['Qiang_storeFilePath'])
+            storePassword keystoreProperties['Qiang_storePassword']
+        }
+    }
+
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        applicationId "com.qiang.app.mystudyapp"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        //打包时间
+        resValue "string", "build_time", buildTime()
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            //更改AndroidManifest.xml中预先定义好占位符信息
+            //manifestPlaceholders = [app_icon: "@drawable/icon"]
+            // 不显示Log
+            buildConfigField "boolean", "LEO_DEBUG", "false"
+            //是否zip对齐
+            zipAlignEnabled true
+            // 缩减resource文件
+            shrinkResources true
+            //Proguard
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            //给applicationId添加后缀“.debug”
+            applicationIdSuffix ".debug"
+            //manifestPlaceholders = [app_icon: "@drawable/launch_beta"]
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.support.app_compat
+    implementation deps.support.v4
+    implementation deps.support.design
+    implementation project(':Function_Module_Qiang_Common')
+    if (!isModule.toBoolean()) {
+        implementation project(':Business_Module_Mob_News')
+        implementation project(':Function_Module_Qiang_Frame')
+        implementation project(':Business_Module_Qiang_AlarmClock')
+    }
+}
+
+//apply plugin: 'com.android.application'
+////apply plugin: 'com.mob.sdk'
+//android {
+//    //读取配置文件
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('key.properties').newDataInputStream())
+//
+//    //读取构建配置
+//    def globalConfiguration = rootProject.extensions.getByName("ext")
+//    compileSdkVersion build_versions.target_sdk
+//
+//    //配置
+//    flavorDimensions "default"
+//
+//    signingConfigs {
+//        yunqiangConfig {
+//            keyAlias properties.getProperty("Qiang_keyAlias")
+//            keyPassword properties.getProperty("Qiang_keyPassword")
+//            storeFile file(properties.getProperty("Qiang_storeFilePath"))
+//            storePassword properties.getProperty("Qiang_storePassword")
+//        }
+//    }
+//    defaultConfig {
+//        applicationId "com.qiang.app.mystudyapp"
+//        minSdkVersion build_versions.min_sdk
+//        targetSdkVersion build_versions.target_sdk
+//        versionCode getMyVersionCode()
+//        versionName getMyVersionName()
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yunqiang",
+//                                UMENG_APPKEY_VALUE : properties.getProperty("UmengAppKey"),
+//                                ALONG_VERSION_TYPE : getVersionType()]
+////        vectorDrawables.useSupportLibrary = true
+//        //启用multidex
+////        multiDexEnabled true
+//        //资源的国际化
+////        resConfigs ("zh","xxhdpi","xhdpi")
+//    }
+//    //修改APK的名字
+//    applicationVariants.all {
+//        variant ->
+//            variant.outputs.all { output ->
+//                if (variant.buildType.name.equals('release')) {
+//                    if (getIsShowVersion()) {
+//                        outputFileName = 'MyStudyAPP-' + getMyVersionName() + '-' + variant.productFlavors[0].name + '-' + buildTime() + '-show.apk'
+//                    } else {
+//                        outputFileName = 'MyStudyAPP-' + getMyVersionName() + '-' + variant.productFlavors[0].name + '-' + buildTime() + '-release.apk'
+//                    }
+//                }
+//            }
+//    }
+//    buildTypes {
+//        release {
+//            //是否混淆
+//            minifyEnabled false
+//            //混淆文件的配置
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            //引用的签名文件
+//            signingConfig signingConfigs.yunqiangConfig
+//            //不用生成调试包
+//            debuggable false
+//            //优化apk
+//            zipAlignEnabled true
+//            //清理未使用资源 与keep资源一起使用，不然反射的有可能被误删
+////            shrinkResources true
+//        }
+//    }
+//    //多渠道打包
+//    productFlavors {
+//        //官方发布渠道名称
+//        Yunqiang {
+////            applicationId "com.ipole.app.myipoleapp.ipole"
+//            //BuildConfig 字段
+//            buildConfigField 'String', 'CHANNEL', '"iPole"'
+//            // 与 res/values 文件资源等价 类型（string、id、bool），名称，值
+////            resValue 'string','channel_tips','iPole welcome'
+//        }
+//        //官方内部测试名称
+//        iTest {
+////            applicationId "com.ipole.app.myipoleapp.ipole"
+//            buildConfigField 'String', 'CHANNEL', '"iTest"'
+//        }
+//    }
+//    productFlavors.all { flavors ->
+//        flavors.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name, ALONG_VERSION_TYPE: getVersionType()]
+//    }
+//
+//    dexOptions {
+//        jumboMode true
+//    }
+//}
+//// greenDao 配置
+////greendao {
+////    //指定数据库schema版本号，迁移等操作会用到
+////    schemaVersion 5
+////    //通过gradle插件生成的数据库相关文件的包名，默认为你的entity所在的包名
+////    daoPackage 'com.ipole.app.myipoleapp.dao'
+////    //自定义生成数据库文件的目录，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了。
+////    targetGenDir 'src/main/java'
+////}
+////获取时间戳
+//def buildTime() {
+//    def date = new Date()
+//    def formattedDate = date.format('yyyyMMddHHmm')
+//    return formattedDate
+//}
+//
+//
+//dependencies {
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    //读取构建配置
+////    def domainDependencies = rootProject.ext.domainDependencies
+////    def domainTestDependencies = rootProject.ext.domainTestDependencies
+////    implementation domainDependencies.supportRecyclerviewV7
+////    implementation domainDependencies.supportAppcompatV7
+//    implementation deps.support.app_compat
+//    implementation deps.support.v4
+//    implementation deps.support.design
+//    implementation deps.support.multidex
+////    implementation domainDependencies.supportV4
+////    implementation domainDependencies.supportDesign
+////    implementation domainDependencies.supportGridlayoutV7
+////    implementation domainDependencies.supportCardviewV7
+////    implementation domainDependencies.supportConstraintLayout
+////    implementation project(':Function_Module_Mob_UMSSDK')
+////    implementation project(':Function_Module_Qiang_Common')
+//}
+//
+////MobSDK {
+////    Properties properties = new Properties()
+////    properties.load(project.rootProject.file('key.properties').newDataInputStream())
+////
+////    appKey properties.getProperty("MobSDK_appKey")
+////    appSecret properties.getProperty("MobSDK_appSecret")
+////
+////    ShareSDK {
+////        gui false
+////        devInfo {
+////            SinaWeibo {
+////                appKey properties.getProperty("SinaWeibo_appKey")
+////                appSecret properties.getProperty("SinaWeibo_appSecret")
+////                callbackUri "http://www.sharesdk.cn"
+////                shareByAppClient false
+////            }
+////            Wechat {
+////                appId properties.getProperty("WeChat_appId")
+////                appSecret properties.getProperty("WeChat_appSecret")
+////            }
+////            QQ {
+////                appId properties.getProperty("QQ_appId")
+////                appKey properties.getProperty("QQ_appKey")
+////            }
+////        }
+////    }
+////
+////    SMSSDK {
+////        gui false
+////    }
+////
+////    UMSSDK {
+////        gui false
+////    }
+////}
+//
+//String getVersionType() {
+//    if (getIsShowVersion()) {
+//        return "show"
+//    } else {
+//        return "release"
+//    }
+//}
+////TODO 事项1：修改版本名称(上次版本名称：1.0.0)
+//String getMyVersionName() {
+//    String versionName = "0.0.2"
+//    if (getIsShowVersion()) {
+//        return versionName + "." + getMyVersionCode()
+//    } else {
+//        return versionName + "." + getMyVersionCode()
+//    }
+//}
+////TODO 事项2：修改版本值(上次发布版本值：2)
+//int getMyVersionCode() {
+//    return 2
+//}
+//
+//boolean getIsShowVersion() {
+//    //TODO 事项3：演示版为 true,上线版为 false(需要重新build工程)
+//    return false
+//}
+
+
+

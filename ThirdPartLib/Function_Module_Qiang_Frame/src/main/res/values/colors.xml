@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--主题色 start-->
+    <color name="colorPrimary">#0C1234</color>
+    <color name="colorPrimaryDark">#0C1234</color>
+    <color name="colorAccent">#0C1234</color>
+    <color name="textColorPrimary">#0C1234</color>
+    <color name="windowBackground">#fff</color>
+    <color name="navigationBarColor">#0C1234</color>
+    <color name="statusBarColor">#0C1234</color>
+    <!--主题色 end-->
+    <!--GestureLock-->
+    <color name="function_common_gesture_color_deep_gray">#6C778A</color>  <!--外圆正常颜色-->
+    <color name="function_common_gesture_color_deep_bule">#194267</color>  <!--外圆选中颜色-->
+    <color name="function_common_gesture_color_normal_gray">#646464</color>  <!--  内圆正常颜色-->
+    <color name="function_common_gesture_color_litle_blue">#02D2E1</color>  <!--  内圆选中颜色-->
+    <color name="function_common_gesture_color_red">#ff0000</color>  <!--  连接错误时内圆颜色-->
+    <color name="function_common_gesture_color_ared">#66ff0000</color>  <!--  连接错误醒目提示颜色-->
+    <color name="function_common_gesture_color_ablue">#6602D2E1</color>  <!-- 连接线颜色 -->
+    <color name="function_common_gesture_color_ok_green">#73d622</color>  <!-- 提示正确内圆的颜色 -->
+    <color name="function_common_gesture_color_agreen">#6673d622</color>  <!-- 提示正确外圆和连接线的颜色 -->
+
+    <color name="main_bottom_text_select">#217bea</color>
+    <color name="main_bottom_text_unSelect">#868686</color>
+</resources>

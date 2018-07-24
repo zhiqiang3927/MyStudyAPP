@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qiang.app.mystudyapp">
+
+    <application
+        android:name=".common.MyStudyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/empty_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--发送崩溃日志界面-->
+        <activity
+            android:name="org.acra.CrashReportDialog"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="true" />
+    </application>
+
+</manifest>

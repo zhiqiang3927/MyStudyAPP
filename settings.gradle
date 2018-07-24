@@ -1,0 +1,11 @@
+include ':app',
+        ':Business_Module_Qiang_AlarmClock',
+        ':Function_Module_Qiang_Frame',
+        ':Function_Module_Qiang_Common',
+//        ':Function_Module_Mob_UMSSDK',
+        ':Business_Module_Mob_News'
+//project(':Function_Module_Mob_UMSSDK').projectDir = new File('ThirdPartLib/Function_Module_Mob_UMSSDK')
+project(':Function_Module_Qiang_Common').projectDir = new File('ThirdPartLib/Function_Module_Qiang_Common')
+project(':Business_Module_Mob_News').projectDir = new File('ThirdPartLib/Business_Module_Mob_News')
+project(':Function_Module_Qiang_Frame').projectDir = new File('ThirdPartLib/Function_Module_Qiang_Frame')
+project(':Business_Module_Qiang_AlarmClock').projectDir = new File('ThirdPartLib/Business_Module_Qiang_AlarmClock')
